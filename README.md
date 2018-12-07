@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# For creating new random phone number:
 
-Things you may want to cover:
+/phones/new.json?user_name=Name
 
-* Ruby version
+# For creating new not random phone number:
 
-* System dependencies
+/phones/new.json?user_name=Name&phone=123-456-7891
 
-* Configuration
+# Example of API answer:
 
-* Database creation
+{
+  user_name: "Name",
+  number: "123-456-7891"
+}
 
-* Database initialization
+# For testing the API:
 
-* How to run the test suite
+rspec spec
 
-* Services (job queues, cache servers, search engines, etc.)
+# Used RoR versions:
 
-* Deployment instructions
-
-* ...
+ruby v.2.5.1, rails v.5.2.1
