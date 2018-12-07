@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_12_07_133954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "phones", force: :cascade do |t|
+    t.integer "phone"
+    t.string "user_name"
+    t.boolean "custom_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phone", "user_name"], name: "index_phones_on_phone_and_user_name", unique: true
+  end
 
 end

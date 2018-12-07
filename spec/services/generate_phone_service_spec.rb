@@ -19,9 +19,16 @@ describe GeneratePhoneService do
 
       before { described_class.call(phone_params) }
 
+      it 'creates record for user with phone from params' do
+        expect(db_record.phone).to eq phone.tr('-', '').to_i
+        expect(db_record.user_name).to eq user_name
+        expect(db_record.custom_phone).to be true
+      end
+
       context 'custom phone is exists' do
         it 'creates random phone' do
           expect { described_class.call(phone_params) }.to change(Phone, :count).by(1)
+          expect(db_record.phone).to eq Phone::START_PHONE
           expect(db_record.user_name).to eq user_name
           expect(db_record.custom_phone).to be false
         end

@@ -7,7 +7,7 @@ class GeneratePhoneService
 
   def initialize(user_name:, phone: nil)
     @user_name = user_name
-    @number = Phone.convert_to_integer(phone)
+    @phone = Phone.convert_to_integer(phone)
   end
 
   def call
